@@ -1,0 +1,82 @@
+// COLOR VARIABLES
+$color-primary: #c69963;
+$color-primary-dark: #B28451;
+
+$color-secondary: #101d2c;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483A;
+$color-grey-dark-2: #6D5D4B;
+
+// FONT VARIABLES
+$font-primary: 'Jim Nightshade', cursive;
+$font-display: 'Viaoda Libre', cursive;
+
+////Responsive Breakpoints
+$bp-largest: 50em;//800px 800/16
+$bp-large: 37.5em;//bp=break-point 600px 600/16
+$bp-small: 31.35em;// 500/16
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //10px/16px=62.5% -> 1rem=10px
+
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 50%;
+    }
+}
+
+body {
+    font-family: $font-display;
+    font-weight: 300;
+    color: $color-grey-dark-2;
+    line-height: 1.6;
+}
+
+.container {
+    display: grid;
+    //puede usarse min-content o auto, "auto" es el valor predeterminado si no se especifica nada, 
+    //significa que se adapta al contenido y que habrá espacio para todo el contenido
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    // 40vw viewport width (Para la sección story)
+    //min-content: para que tenga la altura de su contenido (para homes)
+    // 1000PX DE MI LAP / 8 COLumnas = 125px
+    grid-template-columns: [sidebar-start] 4rem [sidebar-end full-start] minmax(2rem, 1fr) 
+                        [center-start] repeat(8, [col-start] minmax(min-content, 10rem) [col-end]) 
+                        [center-end] minmax(2rem, 1fr) [full-end];
+        //col-end y col-start se numerarán del 1 al 8
+        //minmax en 1fr para que siempre haya un margen al hacerlo responsivo
+    //las 8 columnas estarán en un máximo de 12rem pero nunca menores a su contenido mínimo
+    // para centrar las 8 columnas, se puede agregar una columna a la izquierda y a la derecha de estas
+    // con 1fr c/u para que ocupen el espacio restante. Son las primeras que se encogerán al hacer el sitio
+    // responsivo. Si no se tuviera la barra de 4rem, se podría hacer margin: auto
+
+    // & > * {  Para probar la creación del layout
+    //     padding: 2rem;
+    //     font-size: 2rem;
+    //     color: aqua;
+    // }
+
+    @media only screen and (max-width: $bp-large) {
+        //Agregar una fila y eliminar la primer columna para subir la sidebar
+        //agregar otra fila para bajar a los realtors. A la vista del header restarle la altura
+        //que ocupa el sidebar de arriba, para que al hacer scroll, cominece la nueva sección de inmediato
+
+        grid-template-rows: 4rem 80vh min-content min-content min-content repeat(3, min-content);
+        //puede ser simplemente: porque las filas se ajustarán a su tamaño
+        // grid-template-rows: 4rem calc(100vh-4rem);
+        grid-template-columns: [full-start] minmax(2rem, 1fr) 
+                            [center-start] repeat(8, [col-start] minmax(min-content, 10rem) [col-end]) 
+                            [center-end] minmax(2rem, 1fr) [full-end];
+    }
+}

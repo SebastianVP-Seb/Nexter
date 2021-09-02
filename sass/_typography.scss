@@ -1,0 +1,81 @@
+%heading {
+    font-family: $font-display;
+    font-weight: 500;
+}
+
+.heading-1 {
+    @extend %heading;
+    font-size: 4rem;
+    color: $color-grey-light-1;
+    line-height: 1;
+}
+
+.heading-2 {
+    @extend %heading;
+    font-size: 3.5rem;
+    font-style: italic;
+    line-height: 1;
+    &--dark {
+        color: $color-grey-dark-1;
+    }
+
+    &--light {
+        color: $color-grey-light-1;
+    }
+}
+
+.heading-3 {
+    @extend %heading;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: $color-primary;
+}
+
+.heading-4 {
+    @extend %heading;
+    font-size: 2rem;
+
+    &--dark {
+        color: $color-grey-dark-1;
+    }
+
+    &--light {
+        color: $color-grey-light-1;
+    }
+}
+
+.btn {
+    background-color: $color-primary;
+    color: white;
+    border: none;
+    border-radius: 0%;
+    font-family: $font-display;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 1.5rem 2.5rem;
+    cursor: pointer;
+
+    transition: all .5s;
+
+    &:hover {
+        background-color: $color-primary-dark;
+    }
+}
+
+/////////////////////// HELPER CLASES /////////////////////////////
+
+.margin_bottom-small {
+    margin-bottom: 2rem;
+}
+
+.margin_bottom-medium {
+    margin-bottom: 3rem;
+}
+
+.margin_bottom-large {
+    margin-bottom: 4rem;
+}
+
+.margin_bottom-big {
+    margin-bottom: 6rem;
+}

@@ -1,0 +1,39 @@
+.features {
+    // background-color: $color-grey-light-2;
+    grid-column: center-start / center-end;
+    align-items: start;
+
+    margin: 11rem 0;
+
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+    gap: 5rem;
+
+    @media only screen and (max-width: $bp-large) {
+        margin: 7rem;
+    }
+}
+
+.feature {
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    // grid-template-rows: max-content max-content;//esta es mi sol para adaptar el texto al grid
+    //o se puede usar para adaptar el texto: align-items: start
+    //min-content para que se adapte al tamaño del ícono, puede ser auto o max-content
+    row-gap: 1rem;
+    column-gap: 2rem;
+
+    &_icon {
+        fill: $color-primary;
+        width: 4rem;
+        height: 4rem;
+        grid-row: 1 / span 2;
+    }
+
+    &-text {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,47 @@
+.footer {
+    background-color: $color-secondary;
+    grid-column: full-start / full-end;
+    padding: 6rem;
+}
+
+.nav {
+    list-style: none;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: .5rem;
+    //auto-fit calculará cuántas columnas debe haber y el tamaño siempre debe estar entre minmax,
+    //cuando no haya suficiente espacio, creará otra pista (row) para que quepan tantos 
+    //elementos como se pueda
+    align-items: center;
+    justify-content: center;
+
+    &_link:link,
+    &_link:visited {
+        text-transform: uppercase;
+        font-family: $font-display;
+        font-size: 1rem;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        padding: 1rem;
+        display: block;
+
+        transition: all .5s;
+
+        &:hover,
+        &:active {
+            background-color: rgba(#fff, .1);
+            transform: translateY(-.5rem);
+        }
+    }
+}
+
+.copyright {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 2.5rem;
+
+    margin-right: auto;
+    margin-left: auto;
+}

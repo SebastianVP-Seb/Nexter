@@ -1,0 +1,59 @@
+.sidebar {
+    background-color: $color-primary;
+    grid-column: sidebar-start / sidebar-end;
+    grid-row: 1 / -1;
+
+    display: flex;
+    justify-content: center;
+
+    @media only screen and (max-width: $bp-large) {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        height: 4rem;
+
+        justify-content: end;
+        align-items: center;
+    }
+}
+
+.nav-btn {
+    border: none;
+    border-radius: 0;
+
+    background-color: white;
+    width: 2rem;
+    height: .4rem;
+
+    margin-top: 4rem;
+
+    &::after,
+    &::before {
+        background-color: white;
+        width: 2rem;
+        height: .4rem;
+
+        content: "";
+        display: block;
+    }
+
+    &::before {
+        transform: translateY(-1.1rem);
+    }
+
+    &::after {
+        transform: translateY(.7rem);
+    }
+
+    @media only screen and (max-width: $bp-large) {
+        margin-top: 0;
+        margin-right: 3rem;
+
+        &::before {
+            transform: translateY(-.8rem);
+        }
+    
+        &::after {
+            transform: translateY(.5rem);
+        }
+    }
+}

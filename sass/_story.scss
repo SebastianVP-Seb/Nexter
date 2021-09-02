@@ -1,0 +1,87 @@
+.story {
+
+    &__pictures {
+        // background-color: $color-primary;
+        grid-column: full-start / col-end 4;
+
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        align-items: center;
+
+        background-image: linear-gradient(rgba($color-primary, .5), rgba($color-primary, .5)), url('..//img/o3ttVJcaFI0.jpg');
+        // linear-gradient necesita que se le pase dos colores
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        // background-size:contain;
+        // background-repeat: no-repeat;
+        object-fit: cover;
+
+        @media only screen and (max-width: $bp-large) {
+            grid-column: 1 / -1;
+            padding: 3rem;
+        }
+    }
+
+    &__img-1 {
+        width: 100%;
+        height: 89%;//del contenedor
+        grid-row: 2 / span 4;
+        grid-column: 2 / span 4;
+        background-size: cover;
+        box-shadow: 0 2rem 5rem rgba(#000, .2);
+
+        @media only screen and (max-width: $bp-large) {
+            grid-column: 1 / 5;
+            grid-row: 1 / -1;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__img-2 {
+        width: 120%;
+        height: 89%;
+        grid-row: 4 / 6;
+        grid-column: 5 / 7;
+
+        z-index: 10;//para ver la imagen se salga se su contenedor
+        box-shadow: 0 2rem 5rem rgba(#000, .3);
+
+        @media only screen and (max-width: $bp-large) {
+            grid-column: 4 / span 3;
+            grid-row: 2 / span 4;
+            width: 100%;
+            z-index: 20;
+        }  
+    }
+    
+    &__content {
+        background-color: $color-grey-light-1;
+        grid-column: col-start 5 / full-end;
+        padding: 4rem 8vw;//unidades de viewport width
+
+        // con felxbox
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: flex-start;//para que el botón no se estire (ddefault: stretch)
+
+        //con grid
+        display: grid;
+        align-content: center;
+        justify-items: start;//para que el botón no se estire (ddefault: stretch)
+
+        @media only screen and (max-width: $bp-large) {
+            grid-column: 1 / -1;
+            grid-row: 5 / 6;
+        }
+    }
+
+    &_text {
+        font-size: 1.5rem;
+        font-style: italic;
+        margin-bottom: 4rem;
+    }
+}
